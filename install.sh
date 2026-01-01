@@ -59,6 +59,8 @@ server {
     listen 443 ssl;
     server_name $PHPMYADMIN_DOMAIN;
 
+    client_max_body_size 100M;
+
     root /usr/share/phpmyadmin;
     index index.php;
 
@@ -117,7 +119,7 @@ create_site() {
 
   SITE_PATH="$SITES_DIR/$DOMAIN/public"
   sudo mkdir -p "$SITE_PATH"
-  sudo chown -R $USER_NAME:$USER_NAME "$SITES_DIR/$DOMAIN"
+  sudo chown -R $USER_NAME:www-data "$SITES_DIR/$DOMAIN"
 
   # SSL
   sudo mkdir -p "$CERT_DIR/$DOMAIN"
@@ -146,6 +148,8 @@ server {
 
     root $SITE_PATH;
     index index.php index.html;
+
+    client_max_body_size 100M;
 
     ssl_certificate     $CRT;
     ssl_certificate_key $KEY;
@@ -220,4 +224,4 @@ sudo chmod +x $SITE_SCRIPT
 echo "=== ✅ LEMP stack + phpMyAdmin setup complete ==="
 echo "MySQL root pass: $MYSQL_ROOT_PASS"
 echo "Try visiting: https://$PHPMYADMIN_DOMAIN"
-echo "Manage sites with: site create example.local"
+echo "Manage sites with: site create mywebsite.local"

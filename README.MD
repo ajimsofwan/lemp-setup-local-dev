@@ -37,7 +37,7 @@ A simple Bash script to install or uninstall a full **LEMP stack** on Ubuntu 24.
 Clone this repository and navigate into it:
 
 ```bash
-git clone https://github.com/<your-username>/lemp-installer.git
+git clone https://github.com/ajimsofwan/lemp-setup-local-dev.git
 cd lemp-installer
 ```
 
