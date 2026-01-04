@@ -13,7 +13,7 @@ CERT_DIR="/etc/nginx/cert"
 echo "=== Installing LEMP Stack for Ubuntu ==="
 sudo add-apt-repository ppa:ondrej/php -y >/dev/null 2>&1 
 sudo apt update -y
-sudo apt install -y nginx mariadb-server php$PHP_VERSION-fpm php$PHP_VERSION-mysql php$PHP_VERSION-zip php$PHP_VERSION-curl php$PHP_VERSION-mbstring php$PHP_VERSION-xml openssl mkcert libnss3-tools unzip wget
+sudo apt install -y nginx mariadb-server php$PHP_VERSION-fpm php$PHP_VERSION-mysql php$PHP_VERSION-zip php$PHP_VERSION-curl php$PHP_VERSION-mbstring php$PHP_VERSION-xm php$PHP_VERSION-intl php$PHP_VERSION-gd openssl mkcert libnss3-tools unzip wget
 
 # Start & enable
 sudo systemctl enable --now nginx mariadb php$PHP_VERSION-fpm
@@ -91,7 +91,7 @@ SITE_SCRIPT="/usr/local/bin/site"
 sudo tee $SITE_SCRIPT > /dev/null <<'EOF'
 #!/bin/bash
 set -e
-USER_NAME="ajimsofwan"
+USER_NAME=${SUDO_USER:-$USER}
 SITES_DIR="/home/$USER_NAME/sites"
 CERT_DIR="/etc/nginx/cert"
 NGINX_AVAIL="/etc/nginx/sites-available"
