@@ -4,7 +4,7 @@ A simple Bash script to install or uninstall a full **LEMP stack** on Ubuntu 24.
 
 - **Nginx**
 - **MariaDB**
-- **PHP 8.2 (via Ondrej PPA)**
+- **PHP 8.3 (via Ondrej PPA)**
 - **phpMyAdmin**
 - **mkcert** (for local HTTPS certificates)
 
@@ -27,7 +27,7 @@ A simple Bash script to install or uninstall a full **LEMP stack** on Ubuntu 24.
   - Sites: `/home/<user>/sites`
   - Certificates: `/etc/nginx/cert`
 
-- **Default PHP version:** `8.2`
+- **Default PHP version:** `8.3`
 - **Default phpMyAdmin domain:** `db.local`
 - **Default MariaDB root password:** `root`
 

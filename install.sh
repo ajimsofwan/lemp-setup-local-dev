@@ -89,6 +89,7 @@ server {
     server_name $PHPMYADMIN_DOMAIN;
     root /usr/share/phpmyadmin;
     index index.php;
+    client_max_body_size 100M;
     ssl_certificate     $CERT_DIR/$PHPMYADMIN_DOMAIN/$PHPMYADMIN_DOMAIN.pem;
     ssl_certificate_key $CERT_DIR/$PHPMYADMIN_DOMAIN/$PHPMYADMIN_DOMAIN-key.pem;
     location / { try_files \$uri \$uri/ /index.php?\$args; }
@@ -135,6 +136,7 @@ server {
     server_name \$DOMAIN;
     root \$SITE_PATH;
     index index.php;
+    client_max_body_size 100M;
     ssl_certificate $CERT_DIR/\$DOMAIN/\$DOMAIN.pem;
     ssl_certificate_key $CERT_DIR/\$DOMAIN/\$DOMAIN-key.pem;
     location / { try_files \\$uri \\$uri/ /index.php?\\$args; }
